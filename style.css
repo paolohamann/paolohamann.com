@@ -286,3 +286,17 @@ a { color: inherit; text-decoration: none; cursor: pointer; }
   .contact-kid-photo { width: 160px; }
   .project-images img { max-width: 100%; }
 }
+
+/* ── Yellow scrollbar ── */
+html {
+  scrollbar-color: var(--yellow) var(--yellow);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background: var(--yellow);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--yellow);
+}

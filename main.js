@@ -3,7 +3,6 @@ function go(page) {
   document.getElementById('view-' + page).classList.add('active');
   window.scrollTo(0, 0);
   if (page === 'cv') alignCvLabels();
-  // reset mobile state when navigating
   const layout = document.querySelector('.layout');
   if (layout) layout.classList.remove('project-open');
 }
@@ -33,9 +32,6 @@ function loadProject(key, title, meta, desc, imgs) {
     el.alt = title;
     container.appendChild(el);
   });
-  // ensure desc sits above images in the DOM
-  const descEl = document.getElementById('proj-desc');
-  descEl.parentNode.insertBefore(descEl, container);
 }
 
 function mobileBack() {
@@ -55,14 +51,12 @@ document.querySelectorAll('.proj').forEach(el => {
       this.dataset.desc,
       this.dataset.imgs
     );
-    // on mobile, switch to project view
     const layout = document.querySelector('.layout');
     if (layout) layout.classList.add('project-open');
     window.scrollTo(0, 0);
   });
 });
 
-// Load first project on init
 const first = document.querySelector('.proj.active');
 if (first) {
   loadProject(first.dataset.key, first.dataset.title, first.dataset.meta, first.dataset.desc, first.dataset.imgs);
